@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Old Rasputin",
+		"price": 40,
+		"category": "Russian Imperial Stout",
+		"image": "img/cleanultimate30ml.jpg"
+	},
+	{
+		"name": "Old Stock",
+		"price": 35,
+		"category": "Old Ale",
+		"image": "img/cleanultimate30ml.jpg"
+	}
+]
