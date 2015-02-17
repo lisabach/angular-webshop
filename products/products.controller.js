@@ -7,7 +7,7 @@
 
 	function productsController ($scope, productsService, cartService) { //cartService registreret i cart.Service.js fil, productsService indsættes fra products.Service fil
 		
-		$scope.categoriesSelected = new Array();
+		// $scope.categoriesSelected = new Array();
 
 		var modelProducts = function(data){ 
 			$scope.products = data; 
@@ -28,25 +28,38 @@
 			cartService.addProductToCart(product, quantity);
 		}
 
+		var updateCategoriesSelected = function(){
+			$scope.categoriesSelected = productsService.getCategoriesSelected();
+		}
 
 		$scope.categoryChange = function(category){
-			var i = $scope.categoriesSelected.indexOf(category); //-1 for not checked
-			if(i > -1){
-				$scope.categoriesSelected.splice(i, 1); //fjern 
-			}
-			else{
-				$scope.categoriesSelected.push(category);
-			}
+			productsService.categoryChange(category);
+			updateCategoriesSelected();
 		}
 
 		$scope.categoryFilter = function(product){
-			if($scope.categoriesSelected.length > 0){
-				if($scope.categoriesSelected.indexOf(product.category) < 0){
-					return; //der skal ike returneres noget
-				}
-			}
-			return product;
-		}
+			return productsService.categoryFilter(product);
+		}		
+
+
+		// $scope.categoryChange = function(category){
+		// 	var i = $scope.categoriesSelected.indexOf(category); //-1 for not checked
+		// 	if(i > -1){
+		// 		$scope.categoriesSelected.splice(i, 1); //fjern 
+		// 	}
+		// 	else{
+		// 		$scope.categoriesSelected.push(category);
+		// 	}
+		// }
+
+		// $scope.categoryFilter = function(product){
+		// 	if($scope.categoriesSelected.length > 0){
+		// 		if($scope.categoriesSelected.indexOf(product.category) < 0){
+		// 			return; //der skal ike returneres noget
+		// 		}
+		// 	}
+		// 	return product;
+		// }
 
 		productsService.getProducts() //eftersprøger products fra productsService
 			.then(modelProducts); //derefter modelProducts funktion

@@ -3,6 +3,8 @@
 
 	var productsService = function($http, $rootScope){
 
+		var categoriesSelected = [];
+
 		var getProducts = function(){ //private function
 			return $http.get("data/products.json") //få vist json data fra fil / http service returnerer en promise
 			.then(function(response){ //når data er vist, skal funktionen response køres
@@ -34,15 +36,42 @@
 			}, getError)
 		}
 
+		var getCategoriesSelected = function(){
+			return getCategoriesSelected;
+		}
+
+		var categoryChange = function(category){
+			var i = categoriesSelected.indexOf(category); //-1 for not checked
+		 	if(i > -1){
+		 		categoriesSelected.splice(i, 1); //fjern 
+		 	}
+		 	else{
+		 		categoriesSelected.push(category);
+		 	}
+		}
+
+		var categoryFilter = function(product){
+			if(categoriesSelected.length > 0){
+		 		if(categoriesSelected.indexOf(product.category) < 0){
+		 			return; //der skal ike returneres noget
+		 		}
+		 	}
+		 	return product;
+		}
+
 		var getError = function(reason){
 				$rootScope.error = "error";
 
 		}
 
+
 		return {
 			getProducts: getProducts, //få vist produkter/gør det 'public'
 			getProduct: getProduct,
-			getCategories: getCategories
+			getCategories: getCategories,
+			getCategoriesSelected: getCategoriesSelected,
+			categoryChange: categoryChange,
+			categoryFilter: categoryFilter
 		}
 	}
 
