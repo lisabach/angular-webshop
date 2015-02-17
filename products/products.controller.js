@@ -51,7 +51,7 @@
 		productsService.getProducts() //eftersprøger products fra productsService
 			.then(modelProducts); //derefter modelProducts funktion
 
-		productsService.getCategories() //eftersprøger products fra productsService
+		productsService.getCategories() 
 			.then(modelCategories);
 	}
 

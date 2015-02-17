@@ -5,7 +5,6 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<title>Webshop</title>
 		<link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css">
-		<script src="angular/angular.min.js"></script>
 	</head>
 	<body>
 		<div ng-controller="cartController" class="well">
@@ -24,9 +23,9 @@
 			</table>
 		</div>
 
-		<div ng-controller="productsController" >
-			
-			<div class="well">
+	<!-- 	<div ng-controller="productsController" >
+			 -->
+			<!-- <div class="well">
 			<h4>Search</h4>
 			<input type="search" placeholder="Search product name" ng-model="productName" />
 
@@ -38,29 +37,45 @@
 					</td>
 				</tr>
 			</table>
+			</div> -->
+
+
+			<div>
+				<h3>Products</h3>
+
+				<h2>{{ error }}</h2>
+
+				<div ng-view>
+					
+				</div>
+
 			</div>
 
-			<h3>Products</h3>
+
+
+
+<!-- 		<h3>Products</h3>
 
 			<table>
 				<tr ng-repeat="product in products | filter:productName | filter:categoryFilter">
 					<td>{{ product.name }}</td>
 					<td><img ng-src="{{ product.image }}" height="125px" /></td>
 					<td>
-					<!-- <form ng-submit="sendMessageToCart()"> <!- products.controller.js fil -->
-					<!-- <input type="text" ng-model="inputMessage" /> <!- felt til indtast (products.controller.js fil) -->
-					<!-- <button class="btn btn-success">Send message</button> -->
-					<!--</form> -->
-						<form ng-submit="addToCart(product)"> <!-- når formen submittes executes metoden som modtager produkter -->
-						<input type="number" ng-model="quantity" /> <!-- og antal-->
+
+
+						<form ng-submit="addToCart(product)"> 
+						<input type="number" ng-model="quantity" /> 
 						<button type="submit">Add to cart</button>
 						</form>
 					</td>
 				</tr>
 
-			</table>
+			</table> -->
 
-		</div>
+	<!-- 	</div> -->
+
+		<script src="angular/angular.min.js"></script>
+		<script src="angular-route/angular-route.min.js"></script>
 
 		<script src="app.module.js"></script>
 
@@ -69,5 +84,6 @@
 
 		<script src="cart/cart.controller.js"></script>
 		<script src="products/products.controller.js"></script>
+		<script src="products/product.controller.js"></script>
 	</body>
 </html>

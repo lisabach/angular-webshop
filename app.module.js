@@ -2,11 +2,31 @@
 	"use strict";
 
 	angular
-		.module("Main", ["Main.products", "Main.cart"])
+		.module("Main", [
+			"ngRoute",
+			"Main.products",
+			"Main.product", 
+			"Main.cart"
+			]
+		)
 
 		.run(function($rootScope){
 			// $rootScope.message = ""
 			$rootScope.cartProducts = {};
-		});
+		})
+
+		//URL routing
+		.config(function($routeProvider){
+			$routeProvider
+				.when("/product/:id", {
+					templateUrl: "./products/product.html",
+					controller: "productController"
+				})
+				.when("/", {
+					templateUrl: "./products/products.html",
+					controller: "productsController"
+				})
+				.otherwise({ redirectTo: "/" });
+		})
 
 }());
