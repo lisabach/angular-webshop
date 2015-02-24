@@ -8,6 +8,8 @@
 	</head>
 	<body>
 		<h1>Mmmm... Parfum</h1>
+
+<!-- CART -->
 		<div ng-controller="cartController" class="well">
 			<h3>Cart</h3>
 			<!-- {{ message }} $rootScope.message cart.service.js fil -->
@@ -15,13 +17,25 @@
 			<tr>
 				<th>Products</th>
 				<th>Quantity</th>
+				<th>Price</th>
+				<th>Total</th>
 			</tr>
 			<tr ng-repeat="cartProduct in cartProducts">
 				<td>{{ cartProduct.product.name }}</td>
 				<td>{{ cartProduct.quantity }}</td>
+				<td>{{ cartProduct.product.price }}</td>
+				<td>{{ cartProduct.total }}</td>
+				<td><button ng-click="addToQuantity(cartProduct.product)">+</button></td>
+				<td><button ng-click="deleteFromQuantity(cartProduct.product)">-</button></td>				
+				<td><button ng-click="deleteProductFromCart(cartProduct.product)">x</button></td>
 			</tr>
 
 			</table>
+			<div class="row">
+			<div class="col-md-2 col-md-offset-6">
+				<b>Total</b>: {{ cartTotal }}
+			</div>
+			</div>
 		</div>
 
 	<!-- 	<div ng-controller="productsController" >
@@ -81,9 +95,11 @@
 
 		<script src="cart/cart.service.js"></script>
 		<script src="products/products.service.js"></script>
+		<script src="checkout/checkout.service.js"></script>		
 
 		<script src="cart/cart.controller.js"></script>
 		<script src="products/products.controller.js"></script>
 		<script src="products/product.controller.js"></script>
+		<script src="checkout/checkout.controller.js"></script>
 	</body>
 </html>

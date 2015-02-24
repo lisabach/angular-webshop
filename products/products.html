@@ -1,3 +1,5 @@
+<a ng-href="#/checkout/" class="btn btn-default">Checkout</a>
+
 <div class="well">
 	<h4>Search</h4>
 	<input type="search" placeholder="Search product name" ng-model="productName" />
@@ -29,7 +31,7 @@
 					
 					<form ng-submit="addToCart(product)"> <!-- når formen submittes executes metoden som modtager produkter -->
 						<input type="number" ng-model="quantity" /> <!-- og antal-->
-						<button type="submit">Add to cart</button>
+						<button type="submit" class="btn btn-default">Add to cart</button>
 					</form>
 				</td>
 		</tr>
