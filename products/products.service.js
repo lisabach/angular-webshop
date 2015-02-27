@@ -54,7 +54,7 @@
 			if(categoriesSelected.length > 0){
 
 		 		if(categoriesSelected.indexOf(product.category) < 0){
-		 			return; //der skal ike returneres noget
+		 			return; //der skal ike returneres noget..
 		 		}
 		 	}
 		 	return product;
