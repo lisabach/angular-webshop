@@ -13,21 +13,27 @@
 		// }
 
 		var addProductToCart = function(product, quantity){
-			
-			if ($rootScope.cartProducts[product.name]) {
-				// .quantity = gammel værdi
-				$rootScope.cartProducts[product.name].quantity += quantity;
-				// .quantity = ny værdi = gammel .quantity værdi + variabel quantity (prisen ganges op)
-				$rootScope.cartProducts[product.name].total = $rootScope.cartProducts[product.name].quantity * $rootScope.cartProducts[product.name].product.price;
-			}
-			else {
-					$rootScope.cartProducts[product.name] = { //vi bruger product name som et id - kalder dem cartProducts
-					product: product,
-					quantity: quantity,
-					total: quantity * product.price
+
+			if (quantity > 0) {
+
+				var cartProduct = $rootScope.cartProducts[product.name];
+				if (cartProduct) {
+					// .quantity = gammel værdi
+					cartProduct.quantity += quantity;
+					// .quantity = ny værdi = gammel .quantity værdi + variabel quantity (prisen ganges op)
+					cartProduct.total = cartProduct.quantity * cartProduct.product.price;
 				}
+				else {
+						$rootScope.cartProducts[product.name] = { //vi bruger product name som et id - kalder dem cartProducts
+						product: product,
+						quantity: quantity,
+						total: quantity * product.price
+					}
+				}
+				calcCartTotal(quantity * product.price);
+
 			}
-			calcCartTotal(quantity * product.price);
+			else { console.log("Du mangler at vælge antal!"); }
 		}
 
 		var deleteProductFromCart = function(product) {

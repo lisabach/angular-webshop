@@ -15,7 +15,13 @@
 
 		var modelCategories = function(data){ 
 			$scope.categories = data; 
-		}	
+		}		
+
+		// $scope.sendMessageToCart = function(){
+		// 	var message = this.inputMessage
+		// 	cartService.setMessage(message); //kalder setMessage fra cart.Service.js fil
+		// }
+
 
 		$scope.addToCart = function(product){
 			var quantity = this.quantity;
