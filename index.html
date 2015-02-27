@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html ng-app="Main">
+
 	<head>
 		<meta charset="utf-8">
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<title>Webshop</title>
 		<link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css">
 	</head>
+
 	<body>
-		<h1>Mmmm... Parfum</h1>
+		<div class="container-fluid">
+			
+			<div class="page-header">
+				<h2>Smell CLEAN <small> - even if you're not</small></h2>
+			</div>
 
 <!-- CART -->
-		<div ng-controller="cartController" class="well">
-			<h3>Cart</h3>
-			<!-- {{ message }} $rootScope.message cart.service.js fil -->
-			<table class="table table-bordered table-striped">
-			<tr>
-				<th>Products</th>
-				<th>Quantity</th>
-				<th>Price</th>
-				<th>Total</th>
-			</tr>
-			<tr ng-repeat="cartProduct in cartProducts">
-				<td>{{ cartProduct.product.name }}</td>
-				<td>{{ cartProduct.quantity }}</td>
-				<td>{{ cartProduct.product.price }}</td>
-				<td>{{ cartProduct.total }}</td>
-				<td><button ng-click="addToQuantity(cartProduct.product)">+</button></td>
-				<td><button ng-click="deleteFromQuantity(cartProduct.product)">-</button></td>				
-				<td><button ng-click="deleteProductFromCart(cartProduct.product)">x</button></td>
-			</tr>
+			<div ng-controller="cartController" class="table-responsive col-md-4 pull-right well">
+				<h4 class="glyphicon glyphicon-shopping-cart"></h4>
+				<!-- {{ message }} $rootScope.message cart.service.js fil -->
 
-			</table>
-			<div class="row">
-			<div class="col-md-2 col-md-offset-6">
-				<b>Total</b>: {{ cartTotal }}
+				<table class="table table-responsive">
+
+					<tr>
+						<th>Product</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+					</tr>
+
+					<tr ng-repeat="cartProduct in cartProducts">
+						<td>{{ cartProduct.product.name }}</td>
+						<td>{{ cartProduct.quantity }}</td>
+						<td>{{ cartProduct.product.price }}</td>
+						<td>{{ cartProduct.total }}</td>
+						<td><button ng-click="addToQuantity(cartProduct.product)">+</button></td>
+						<td><button ng-click="deleteFromQuantity(cartProduct.product)">-</button></td>				
+						<td><button ng-click="deleteProductFromCart(cartProduct.product)">x</button></td>
+					</tr>
+
+				</table>
+
+				<div class="col-md-4 col-md-offset-5">
+					<b>Total</b>: {{ cartTotal }}
+				</div>
+	
 			</div>
-			</div>
-		</div>
 
-	<!-- 	<div ng-controller="productsController" >
-			 -->
-			<!-- <div class="well">
-			<h4>Search</h4>
-			<input type="search" placeholder="Search product name" ng-model="productName" />
+		<!-- 	<div ng-controller="productsController" >
+				 -->
+				<!-- <div class="well">
+				<h4>Search</h4>
+				<input type="search" placeholder="Search product name" ng-model="productName" />
 
-			<h4>Categories</h4>
-			<table>
-				<tr ng-repeat="catObject in categories">
-					<td>
-					<input type="checkbox" ng-click="categoryChange(catObject.category)"> {{ catObject.category }}
-					</td>
-				</tr>
-			</table>
-			</div> -->
+				<h4>Categories</h4>
+				<table>
+					<tr ng-repeat="catObject in categories">
+						<td>
+						<input type="checkbox" ng-click="categoryChange(catObject.category)"> {{ catObject.category }}
+						</td>
+					</tr>
+				</table>
+				</div> -->
 
 
 			<div>
@@ -60,7 +69,6 @@
 				<h2>{{ error }}</h2>
 
 				<div ng-view>
-					
 				</div>
 
 			</div>
@@ -68,25 +76,26 @@
 
 
 
-<!-- 		<h3>Products</h3>
+	<!-- 		<h3>Products</h3>
 
-			<table>
-				<tr ng-repeat="product in products | filter:productName | filter:categoryFilter">
-					<td>{{ product.name }}</td>
-					<td><img ng-src="{{ product.image }}" height="125px" /></td>
-					<td>
+				<table>
+					<tr ng-repeat="product in products | filter:productName | filter:categoryFilter">
+						<td>{{ product.name }}</td>
+						<td><img ng-src="{{ product.image }}" height="125px" /></td>
+						<td>
 
 
-						<form ng-submit="addToCart(product)"> 
-						<input type="number" ng-model="quantity" /> 
-						<button type="submit">Add to cart</button>
-						</form>
-					</td>
-				</tr>
+							<form ng-submit="addToCart(product)"> 
+							<input type="number" ng-model="quantity" /> 
+							<button type="submit">Add to cart</button>
+							</form>
+						</td>
+					</tr>
 
-			</table> -->
+				</table> -->
 
-	<!-- 	</div> -->
+		<!-- 	</div> -->
+		</div>
 
 		<script src="angular/angular.min.js"></script>
 		<script src="angular-route/angular-route.min.js"></script>
@@ -101,5 +110,7 @@
 		<script src="products/products.controller.js"></script>
 		<script src="products/product.controller.js"></script>
 		<script src="checkout/checkout.controller.js"></script>
+
 	</body>
+
 </html>
