@@ -24,7 +24,6 @@
 
 
 <!-- CHECKOUT BUTTON -->
-<!-- 	<div class="row"> -->
 		<div class="col-md-12">
 			<div class="pull-right">
 				<a ng-href="#/checkout/" class="btn btn-default">Checkout</a>
@@ -32,6 +31,7 @@
 		</div>
 	</div>
 
+<!-- PRODUCTS -->
 	<div class="row">
 		<div class="col-md-2">
 			<div class="navbar-header">
@@ -40,7 +40,6 @@
 		</div>
 	</div>
 
-<!-- PRODUCTS -->
 	<div class="row-group">
 		<div class="col-md-4" ng-repeat="product in products | filter:productName | filter:categoryFilter">
 
@@ -67,11 +66,6 @@
 					<h5>DKK {{ product.price }}</h5>
 				</div>
 			</div>
-
-				<!-- <form ng-submit="sendMessageToCart()"> <!- products.controller.js fil -->
-				<!-- <input type="text" ng-model="inputMessage" /> <!- felt til indtast (products.controller.js fil) -->
-				<!-- <button class="btn btn-success">Send message</button> -->
-				<!--</form> -->
 				
 <!-- ADD TO CART -->
 			<div class="row">
