@@ -1,0 +1,73 @@
+<div class="cointainer-fluid">
+
+<!-- BACK BUTTON -->
+<div class="row">
+	<div class="col-md-3">
+		<a ng-href="#/" class="btn btn-default">More shopping</a>
+	</div>
+</div>
+
+
+<!-- CHECKOUT-->
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Checkout</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<h3><small>Customer information:</small></h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+
+			<form>
+
+				<div class="form-group row">
+					<div class="col-md-6">
+						<label for="firstname">Firstname:</label>
+						<input type="text" class="form-control" id="firstname" ng-model="order.firstname" />
+					</div>
+
+					<div class="col-md-6">
+						<label for="lastname">Lastname:</label>
+						<input type="text" class="form-control" id="lastname" ng-model="order.lastname" />
+					</div>
+
+				</div>	
+
+				<div class="form-group">
+						<label for="address">Address:</label>
+						<input type="text" class="form-control" id="address" ng-model="order.address" />
+				</div>
+
+				<div class="form-group row">
+
+					<div class="col-md-6">
+						<label for="zip">Zip:</label>
+						<input type="text" class="form-control" id="zip" ng-model="order.zip" />
+					</div>
+
+					<div class="col-md-6">
+						<label for="city">City:</label>
+						<input type="text" class="form-control" id="city" ng-model="order.city" />
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="text" class="form-control" id="email" ng-model="order.email" />
+				</div>	
+
+				<button type="submit" class="btn btn-default" ng-click="saveOrder()">Confirm order</button>		
+
+			</form>
+
+		</div>
+	</div>
+
+</div>
