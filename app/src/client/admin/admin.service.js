@@ -50,18 +50,28 @@
 		}
 
 		var getOrders = function(){ //private function
-			return $http.get("/api/orders") //få vist json data fra fil / http service returnerer en promise
+			return $http.get("/api/orders") 
 			.then(function(response){ //når data er vist, skal funktionen response køres
 				return response.data; //data fra response returneres 
-			})
+			});
 
 		}
+
+		var deleteOrder = function(id){
+			console.log(id)
+			return $http.delete("/api/order/" + id)
+				.then(function(response){
+					return response;
+				});
+		}
+
 
 		return{
 			createProduct: createProduct,
 			updateProduct: updateProduct,
 			deleteProduct: deleteProduct,
-			getOrders: getOrders
+			getOrders: getOrders,
+			deleteOrder: deleteOrder
 		}
 	}
 

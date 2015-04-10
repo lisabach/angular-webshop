@@ -1,41 +1,49 @@
-<!-- ADMIN -->
-
 <div class="admin-container">
 
-<!-- TO FRONTEND -->
-<div class="row">
-	<div class="col-md-3">
-		<a ng-href="#/" class="btn btn-default">Shop</a>
-	</div>
-	<div>
-		<td><a ng-href ="/#/admin/create" class="btn btn-default">Create new product</a></td>
-	</div>
-		<div>
-		<td><a ng-href ="/#/admin/show-orders" class="btn btn-default">Show Orders</a></td>
-	</div>
-</div>
 
+<!-- TO FRONTEND -->
+	<div class="row">
+		<div class="col-md-2">
+			<a ng-href="#/" class="btn btn-default">Shop</a>
+		</div>
+	</div>
+
+
+<!-- ADMIN -->
 	<div class="row">
 		<div class="col-md-6">
 			<h3>Admin</h3>
 		</div>
 	</div>
 
+<!-- BUTTONS -->
+	<div class="row">
+		<div class="col-md-2">
+			<a ng-href ="/#/admin/create" class="btn btn-default">Create new product</a>
+		</div>
+
+		<div class="col-md-2">
+			<a ng-href ="/#/admin/show-orders" class="btn btn-default">Show Orders</a></td>
+		</div>		
+	</div>
+
+	<br />
+
 <!-- {{ products }} -->
+	<div class="row">
+		<div class="table-responsive col-md-5">
 
-	<div class="table-responsive col-md-4">
+			<table ng-repeat="product in products" class="table table-responsive">
 
+				<tr>
+					<td>{{ product.name }}</td>
+					<td><a ng-href ="/#/admin/update/{{product._id}}" class="btn btn-default">Update</a></td>
+					<td><button class="btn btn-default" type="submit" ng-click="deleteProduct(product._id)">Delete</button></td>				
+				</tr>
 
-		<table ng-repeat="product in products" class="table table-responsive">
+			</table>
 
-			<tr>
-				<td>{{ product.name }}</td>
-				<td><a ng-href ="/#/admin/update/{{product._id}}" class="btn btn-default">Update</a></td>
-				<td><button class="btn btn-default" type="submit" ng-click="deleteProduct(product._id)">Delete</button></td>				
-			</tr>
-
-		</table>
-
+		</div>
 	</div>
 
 </div>

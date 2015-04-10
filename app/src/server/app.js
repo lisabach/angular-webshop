@@ -17,6 +17,7 @@ var product = require('./controllers/api/product');
 var category = require('./controllers/api/category');
 var order = require('./controllers/api/order');
 
+
 //get all products
 router.get('/api/products', product.getAll); //api'en getALL
 
@@ -26,11 +27,13 @@ router.get('/api/categories', category.getAll);
 //Get all orders
 router.get('/api/orders', order.getAll);
 
+
 //create product
 router.post('/api/product', product.create); 
 
 //create order
 router.post('/api/order', order.create);
+
 
 //get product
 //update product
@@ -39,6 +42,12 @@ router.route('/api/product/:id')
 	.get(product.read) 
 	.put(product.update)
 	.delete(product.delete);
+
+//get order
+//delete order
+router.route('/api/order/:id')
+	.get(order.read)
+	.delete(order.delete);
 
 //registrer routing
 app.use('/', router);

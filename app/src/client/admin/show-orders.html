@@ -10,14 +10,15 @@
 
 <!-- {{ orders }} -->
 
-	<div class="table-responsive col-md-4">
+	<div class="table-responsive col-md-8">
 
 
 		<table ng-repeat="order in orders" class="table table-responsive">
 
 			<tr>
 				<td>{{ order.firstname }} {{ order.lastname }}</td>
-				<td>{{ order.orderlines }}</td>			
+				<td>-3-{{ order.orderlines }}-4-</td>	
+				<td><button class="btn btn-default" type="submit" ng-click="deleteOrder(order._id)">Delete</button></td>		
 			</tr>
 
 		</table>

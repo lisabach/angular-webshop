@@ -42,6 +42,14 @@
 					.then(modelProducts))
 		}	
 
+		$scope.deleteOrder = function (id) {
+			// cartService.deleteFromQuantity(product);
+			console.log("order controller del")
+			adminService.deleteOrder(id)
+			.then(adminService.getOrders()
+					.then(modelOrders))
+		}	
+
 		productsService.getProducts() //eftersprøger products fra productsService
 		.then(modelProducts); //derefter modelProducts funktion
 
